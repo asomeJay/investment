@@ -1,26 +1,26 @@
 // InvestmentCalculator.js
 import React, {useState} from 'react';
 import {
-    TextField,
     Button,
-    FormControl,
-    FormLabel,
-    RadioGroup,
-    FormControlLabel,
-    Radio,
     Container,
+    FormControl,
+    FormControlLabel,
+    FormLabel,
     Grid,
-    Typography,
-    TableContainer,
+    MenuItem,
+    Paper,
+    Radio,
+    RadioGroup,
+    Select,
     Table,
+    TableBody,
+    TableCell,
+    TableContainer,
     TableHead,
     TableRow,
-    TableCell,
-    TableBody,
-    Paper,
+    TextField,
+    Typography,
     useTheme,
-    MenuItem,
-    Select, InputLabel,
 } from '@mui/material';
 import {Chart} from 'react-google-charts';
 import Box from "@mui/material/Box";
@@ -230,29 +230,33 @@ const InvestmentCalculator = () => {
                                     vAxis: {title: 'Total Money'},
                                 }}
                             />
-                            <TableContainer component={Paper} style={{ overflow: 'auto' }}>
+                            <TableContainer component={Paper} style={{overflow: 'auto'}}>
                                 <Table aria-label="investment results" size="small">
                                     <TableHead>
                                         <TableRow>
-                                            <TableCell style={{ padding: theme.spacing(1) }}>Year</TableCell>
-                                            <TableCell align="right" style={{ padding: theme.spacing(1) }}>Total Money</TableCell>
-                                            <TableCell align="right" style={{ padding: theme.spacing(1) }}>Yield Against Original</TableCell>
-                                            <TableCell align="right" style={{ padding: theme.spacing(1) }}>Yield Rate (%)</TableCell>
+                                            <TableCell style={{padding: theme.spacing(1)}}>Year</TableCell>
+                                            <TableCell align="right" style={{padding: theme.spacing(1)}}>Total
+                                                Money</TableCell>
+                                            <TableCell align="right" style={{padding: theme.spacing(1)}}>Yield Against
+                                                Original</TableCell>
+                                            <TableCell align="right" style={{padding: theme.spacing(1)}}>Yield Rate
+                                                (%)</TableCell>
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
                                         {results.slice(1).map((row) => (
                                             <TableRow key={row[0]}>
-                                                <TableCell component="th" scope="row" style={{ padding: theme.spacing(1) }}>
+                                                <TableCell component="th" scope="row"
+                                                           style={{padding: theme.spacing(1)}}>
                                                     {row[0]}
                                                 </TableCell>
-                                                <TableCell align="right" style={{ padding: theme.spacing(1) }}>
+                                                <TableCell align="right" style={{padding: theme.spacing(1)}}>
                                                     {row[1].toFixed(2)} 만원
                                                 </TableCell>
-                                                <TableCell align="right" style={{ padding: theme.spacing(1) }}>
+                                                <TableCell align="right" style={{padding: theme.spacing(1)}}>
                                                     {row[2].toFixed(2)} 만원
                                                 </TableCell>
-                                                <TableCell align="right" style={{ padding: theme.spacing(1) }}>
+                                                <TableCell align="right" style={{padding: theme.spacing(1)}}>
                                                     {row[3]}%
                                                 </TableCell>
                                             </TableRow>
