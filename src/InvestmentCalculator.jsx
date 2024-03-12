@@ -57,24 +57,34 @@ const InvestmentCalculator = () => {
 
         for (let year = 1; year <= parseInt(duration); year++) {
             if (compounding === 'annual') {
-                // For each month, add the additional payment if the payment frequency is monthly.
+                // Add annual additional payment at the beginning of the year.
+                if (additionalPayment === 'annual') {
+                    totalMoney += additionalAmount;
+                    totalContributions += additionalAmount;
+                }
+
+                // For each month, add the monthly additional payment.
                 if (additionalPayment === 'monthly') {
                     for (let month = 1; month <= 12; month++) {
                         totalMoney += additionalAmount;
                         totalContributions += additionalAmount;
                     }
                 }
+
                 // Apply annual compounding.
                 totalMoney *= (1 + annualYield);
-            } else {
+            } else { // Monthly compounding
+                if (additionalPayment === 'annual' && year > 1) {
+                    // Add annual additional payment at the beginning of each year after the first.
+                    totalMoney += additionalAmount;
+                    totalContributions += additionalAmount;
+                }
+
                 // For monthly compounding, update the total money each month.
                 for (let month = 1; month <= 12; month++) {
                     if (additionalPayment === 'monthly') {
                         totalMoney += additionalAmount;
                         totalContributions += additionalAmount;
-                    } else {
-                        totalMoney += additionalAmount * 12;
-                        totalContributions += additionalAmount * 12;
                     }
                     totalMoney *= (1 + monthlyYield);
                 }
@@ -85,9 +95,8 @@ const InvestmentCalculator = () => {
             let yieldRatePercent = (yieldAgainstOriginal / totalContributions) * 100;
             data.push([`${year}`, totalMoney, yieldAgainstOriginal, yieldRatePercent.toFixed(2)]);
             chartData.push([`${year}`, totalMoney, yieldAgainstOriginal]);
-
-
         }
+
         setChartResults(chartData)
         setResults(data);
     };
