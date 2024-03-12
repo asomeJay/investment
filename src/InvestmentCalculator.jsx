@@ -72,6 +72,9 @@ const InvestmentCalculator = () => {
                     if (additionalPayment === 'monthly') {
                         totalMoney += additionalAmount;
                         totalContributions += additionalAmount;
+                    } else {
+                        totalMoney += additionalAmount * 12;
+                        totalContributions += additionalAmount * 12;
                     }
                     totalMoney *= (1 + monthlyYield);
                 }
