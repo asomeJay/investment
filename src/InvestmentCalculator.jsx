@@ -113,7 +113,7 @@ const InvestmentCalculator = () => {
 
             <Container>
                 <Grid container alignItems="center" direction="column" spacing={2}>
-                    <Typography marginTop={"100px"} variant="h4">투자 계산기</Typography>
+                    <Typography marginTop={"100px"} variant="h4" component="h1">투자 계산기</Typography>
                     <Grid container
                           marginTop={'10px'}
                           alignItems="center"
