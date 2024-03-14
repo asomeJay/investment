@@ -26,12 +26,12 @@ import {Chart} from 'react-google-charts';
 import Box from "@mui/material/Box";
 
 const InvestmentCalculator = () => {
-    const [initialMoney, setInitialMoney] = useState('');
-    const [investment, setInvestment] = useState('');
+    const [initialMoney, setInitialMoney] = useState('1000');
+    const [investment, setInvestment] = useState('300');
     const [additionalPayment, setAdditionalPayment] = useState('monthly');
     const [compounding, setCompounding] = useState('annual');
-    const [duration, setDuration] = useState('');
-    const [yieldRate, setYieldRate] = useState('');
+    const [duration, setDuration] = useState('10');
+    const [yieldRate, setYieldRate] = useState('8');
     const [results, setResults] = useState([]);
     const [chartResults, setChartResults] = useState([]);
     const theme = useTheme();
@@ -101,6 +101,9 @@ const InvestmentCalculator = () => {
         setResults(data);
     };
 
+    React.useEffect(() => {
+        document.getElementById('clickedButton').querySelector('button').click()
+    }, [])
 
     return (
         <Box
@@ -224,7 +227,7 @@ const InvestmentCalculator = () => {
                             fullWidth
                         />
                     </Grid>
-                    <Grid item>
+                    <Grid item id={"clickedButton"}>
                         <Button
                             size={"large"}
                             variant="contained"
