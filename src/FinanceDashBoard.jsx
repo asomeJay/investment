@@ -1,24 +1,26 @@
 import React, {useState} from 'react';
 import {
-    Typography,
-    TextField,
     Box,
+    Container,
+    Paper,
     Table,
     TableBody,
     TableCell,
     TableHead,
     TableRow,
-    Paper, Divider, Container
+    TextField,
+    Typography
 } from '@mui/material';
 import {
-    LineChart,
-    Line,
-    XAxis,
-    YAxis,
     CartesianGrid,
-    Tooltip,
     Legend,
-    ResponsiveContainer, ReferenceLine
+    Line,
+    LineChart,
+    ReferenceLine,
+    ResponsiveContainer,
+    Tooltip,
+    XAxis,
+    YAxis
 } from 'recharts';
 
 function FinanceDashboard() {
@@ -29,7 +31,7 @@ function FinanceDashboard() {
     const [yearsData, setYearsData] = useState([]); // [1
     const [savingsRate, setSavingsRate] = useState(10);
     const [retirementYear, setRetirementYear] = useState(0);
-    const [yearsToShow, setYearsToShow] = useState(20); // Years to show before and after the retirement
+    const yearsToShow = 20; // Years to show before and after the retirement
     const [summary, setSummary] = useState()
     // React.useEffect(() => {
     //     setExpenses(parseInt(income - savings))
@@ -76,7 +78,7 @@ function FinanceDashboard() {
         const startYear = 0;
         const endYear = Math.min(retirementYear + yearsToShow, yearsData.length - 1);
         return yearsData.slice(startYear, endYear + 1);
-    })
+    }, [retirementYear])
 
     React.useEffect(() => {
         setSummary(yearsData[retirementYear])
