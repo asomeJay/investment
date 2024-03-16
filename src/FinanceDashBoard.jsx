@@ -90,6 +90,9 @@ function FinanceDashboard() {
                 <Typography variant="h4" component="h1" gutterBottom>
                     은퇴계산기
                 </Typography>
+                <Typography variant="subtitle2" gutterBottom>
+                    투자 수익으로 지출을 충당할 수 있는 은퇴 시점을 계산합니다.
+                </Typography>
                 <Box sx={{display: 'flex', justifyContent: 'center', gap: 2, flexWrap: 'wrap'}}>
                     <TextField
                         label="연간 수익 (KRW)"
