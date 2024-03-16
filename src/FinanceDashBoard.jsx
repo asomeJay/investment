@@ -172,7 +172,7 @@ function FinanceDashboard() {
                                     은퇴 시점에 연간 투자 수익액은 {summary.annualRoiIncome.toFixed()} 원 입니다.
                                 </Typography>
                                 <Typography variant="body1">
-                                    지출금액을 제하고 {(summary.annualRoiIncome - summary.expenses).toFixed()} 원을 저축할 수 있습니다.
+                                    지출금액을 제하고 {(summary.annualRoiIncome - summary.expenses).toFixed()} 원이 남습니다.
                                 </Typography>
                                 <Typography variant="body1">
                                     연간 지출액은 {summary.expenses.toFixed()} 원 입니다.
