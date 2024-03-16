@@ -1,11 +1,11 @@
 // App.js
 import React from 'react';
-import InvestmentCalculator from './InvestmentCalculator';
+import FinanceDashBoard from "./FinanceDashBoard";
 
 function App() {
     return (
         <div>
-            <InvestmentCalculator />
+            <FinanceDashBoard/>
         </div>
     );
 }
