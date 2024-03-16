@@ -78,7 +78,7 @@ function FinanceDashboard() {
         const startYear = 0;
         const endYear = Math.min(retirementYear + yearsToShow, yearsData.length - 1);
         return yearsData.slice(startYear, endYear + 1);
-    }, [retirementYear])
+    }, [retirementYear, yearsData])
 
     React.useEffect(() => {
         setSummary(yearsData[retirementYear])
