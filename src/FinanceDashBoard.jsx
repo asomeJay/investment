@@ -9,7 +9,7 @@ import {
     TableHead,
     TableRow,
     TextField,
-    Typography
+    Typography,
 } from '@mui/material';
 import {
     CartesianGrid,
@@ -33,17 +33,7 @@ function FinanceDashboard() {
     const [retirementYear, setRetirementYear] = useState(0);
     const yearsToShow = 20; // Years to show before and after the retirement
     const [summary, setSummary] = useState()
-    // React.useEffect(() => {
-    //     setExpenses(parseInt(income - savings))
-    // }, [income, savings])
-    //
-    // React.useEffect(() => {
-    //     setSavingsRate((parseFloat(savings / income) * 100).toFixed(2))
-    // }, [income, savings])
-    //
-    // React.useEffect(() => {
-    //     setSavings(parseInt(income * parseFloat(savingsRate / 100).toFixed(2)))
-    // }, [savingsRate])
+
 
     React.useEffect(() => {
         let year = 0;
@@ -86,7 +76,9 @@ function FinanceDashboard() {
 
     return (
         <Container maxWidth={"md"}>
+
             <Box sx={{marginTop: 4, marginBottom: 4, textAlign: 'center'}}>
+
                 <Typography variant="h4" component="h1" gutterBottom>
                     은퇴계산기
                 </Typography>
