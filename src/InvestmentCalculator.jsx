@@ -58,7 +58,7 @@ const InvestmentCalculator = () => {
         for (let year = 1; year <= parseInt(duration); year++) {
             if (compounding === 'annual') {
                 // Add annual additional payment at the beginning of the year.
-                if (additionalPayment === 'annual') {
+                if (additionalPayment === 'yearly') {
                     totalMoney += additionalAmount;
                     totalContributions += additionalAmount;
                 }
@@ -74,7 +74,7 @@ const InvestmentCalculator = () => {
                 // Apply annual compounding.
                 totalMoney *= (1 + annualYield);
             } else { // Monthly compounding
-                if (additionalPayment === 'annual' && year > 1) {
+                if (additionalPayment === 'yearly' && year > 1) {
                     // Add annual additional payment at the beginning of each year after the first.
                     totalMoney += additionalAmount;
                     totalContributions += additionalAmount;
